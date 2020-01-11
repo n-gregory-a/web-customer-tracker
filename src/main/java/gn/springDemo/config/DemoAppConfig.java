@@ -33,6 +33,17 @@ public class DemoAppConfig implements WebMvcConfigurer {
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
+    // define bean for ViewResolver
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+
+        viewResolver.setPrefix("/WEB-INF/view/");
+        viewResolver.setSuffix(".jsp");
+
+        return viewResolver;
+    }
+
     // define a bean for security datasource
     @Bean
     public DataSource securityDataSource() {
